@@ -3,7 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class e_bay_login {
+public class _01_e_bay_von_bis {
 
     public static void main(String[] args) {
 
