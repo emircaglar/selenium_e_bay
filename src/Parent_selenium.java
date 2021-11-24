@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -25,8 +26,13 @@ public class Parent_selenium {
  };
     public static void wait_element_list(List<WebElement> actionsList,WebDriver driver){
 
-        WebDriverWait wait=new WebDriverWait(driver,10 );
+        WebDriverWait wait=new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOfAllElements(actionsList));
+
+    };public static void wait_element_list_bestimte(List<WebElement> actionsList,WebDriver driver,int zahl){
+
+        WebDriverWait wait=new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(actionsList.get(zahl)));
 
     };
 
@@ -76,4 +82,21 @@ public class Parent_selenium {
             }
         }
     };
+
+
+    public static void options_select(WebElement element,WebDriver driver){
+
+        Select select=new Select(element);
+        select.selectByIndex(2);
+
+    }
+
+    public static void options_von_list_select(List<WebElement> generalList,WebDriver driver,int zahl){
+
+        wait_element_list_bestimte(generalList,driver,zahl);
+        for (int i = 0; i <generalList.size() ; i++) {
+            generalList.get(zahl).click();
+        }
+
+    }
 }
