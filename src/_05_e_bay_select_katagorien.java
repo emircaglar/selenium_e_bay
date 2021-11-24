@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
 public class _05_e_bay_select_katagorien extends Parent_selenium {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "resourcces/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -18,10 +18,9 @@ public class _05_e_bay_select_katagorien extends Parent_selenium {
         WebElement esc_click = driver.findElement(By.xpath("//a[@title='Close (Esc)']"));
         Parent_selenium.options_click(esc_click, driver);
 
-        WebElement mehr_click = driver.findElement(By.xpath("//section[@id='home-ctgrs']/div[1]/ul/li[1]/ul/li[11]/a"));
-        Parent_selenium.options_click(mehr_click, driver);
 
-        WebElement katagorien = driver.findElement(By.xpath("//ul[@id='home-ul-ctgrs']/li[1]"));
+
+        WebElement katagorien = driver.findElement(By.xpath("//ul[@id='home-ul-ctgrs']/li[1]/a"));
         Parent_selenium.options_click(katagorien, driver);
 
         List<WebElement> auto_rad_boot_List = driver.findElements(By.xpath("//ul[@class='browsebox-itemlist treelist']/li"));
